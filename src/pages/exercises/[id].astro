@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SimpleArithmeticApp from "../../apps/SimpleArithmetic/app.svelte";
+import exercises from "../../data/exercises.json";
+
+export function getStaticPaths() {
+  return [
+    { params: { id: "add-up-to-ten" } },
+    { params: { id: "subtract-up-to-ten" } },
+    { params: { id: "add-up-to-100" } },
+    { params: { id: "subtract-up-to-100" } },
+    { params: { id: "multiply-up-to-five" } },
+    { params: { id: "divide-up-to-five" } },
+    { params: { id: "multiply-from-6-10" } },
+    { params: { id: "divide-from-6-10" } },
+    { params: { id: "multiply-by-11-12" } },
+    { params: { id: "divide-by-11-12" } },
+    { params: { id: "multiply-from-13-15" } },
+    { params: { id: "divide-from-13-15" } },
+  ];
+}
+
+const { id } = Astro.params;
+const exercise = exercises.find((exercise) => exercise.id === id);
+---
+
+<Layout title={exercise.title}>
+  <h2>{exercise.title}</h2>
+  <SimpleArithmeticApp client:load data={exercise.data} />
+</Layout>

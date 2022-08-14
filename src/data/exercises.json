@@ -48,8 +48,8 @@
         }
     },
     {
-        "id": "multiply-by-five",
-        "title": "Multiplying numbers by 5",
+        "id": "multiply-up-to-five",
+        "title": "Multiplying numbers up to 5",
         "format": "simple-arithmetic",
         "data": {
             "lowerBound": 0,
@@ -60,8 +60,8 @@
         }
     },
     {
-        "id": "divide-by-five",
-        "title": "Dividing by numbers by 5",
+        "id": "divide-up-to-five",
+        "title": "Dividing by numbers up to 5",
         "format": "simple-arithmetic",
         "data": {
             "lowerBound": 0,

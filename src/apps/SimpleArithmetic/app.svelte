@@ -29,20 +29,12 @@
     },
   ];
 
-  const demo = {
-    lowerBound: 0,
-    upperBound: 10,
-    operations: ["addition", "subtraction"],
-    guranteedNumbers: [],
-    excludedNumbers: [],
-  };
-
   const trainer = new Trainer(
-    demo.lowerBound,
-    demo.upperBound,
-    demo.operations,
-    demo.guranteedNumbers,
-    demo.excludedNumbers
+    data.lowerBound,
+    data.upperBound,
+    data.operations,
+    data.guranteedNumbers,
+    data.excludedNumbers
   );
 
   let input = "";

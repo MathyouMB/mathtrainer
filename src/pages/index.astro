@@ -1,8 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SimpleArithmeticApp from "../apps/SimpleArithmetic/app.svelte";
+import exercises from "../data/exercises.json";
 ---
 
 <Layout title="Math Trainer Demo">
-  <SimpleArithmeticApp client:load data={{}} />
+  <h1>Home Page</h1>
+  {exercises.map((exercise) => (
+    <div>
+      <a href={`/exercises/${exercise.id}`}>
+        <h2>{exercise.title}</h2>
+      </a>
+    </div>
+  ))}
 </Layout>
