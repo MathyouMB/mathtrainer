@@ -5,8 +5,12 @@ import {
   SubtractionGenerator,
 } from "./Generators";
 
+import { Record } from "./Record";
+
 class Trainer {
   generators;
+  currentQuestion = null;
+  records;
 
   constructor(
     lowerBound,
@@ -22,6 +26,7 @@ class Trainer {
       guranteedNumbers,
       excludedNumbers
     );
+    this.records = [];
   }
 
   constructGenerators = (
@@ -79,10 +84,43 @@ class Trainer {
     return generators;
   };
 
+  initialize = () => {
+    this.generateQuestion();
+  };
+
+  submitAnswer = (answer) => {
+    const record = this.recordAnswer(answer);
+    this.generateQuestion();
+
+    return record.isCorrect();
+  };
+
   generateQuestion = () => {
-    let generator =
+    const generator =
       this.generators[Math.floor(Math.random() * this.generators.length)];
-    return generator.createQuestion();
+    this.currentQuestion = generator.createQuestion();
+  };
+
+  recordAnswer = (answer) => {
+    const record = new Record(answer, this.currentQuestion);
+    this.records.push(record);
+
+    return record;
+  };
+
+  determineScore = () => {
+    let score = 0;
+    for (let record of this.records) {
+      if (record.isCorrect()) {
+        score++;
+      }
+    }
+    return score;
+  };
+
+  displayScore = () => {
+    let score = this.determineScore();
+    return `You got ${score} out of ${this.records.length} questions correct.`;
   };
 }
 

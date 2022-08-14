@@ -1,9 +1,33 @@
 <script>
   import { onMount } from "svelte";
+  import Timer from "../../components/Timer.svelte";
   import { Trainer } from "./lib/Trainer";
   import "./styles.scss";
 
   export let data;
+
+  const TIMES = [
+    {
+      name: "1 minutes",
+      seconds: 60,
+    },
+    {
+      name: "2 minutes",
+      seconds: 120,
+    },
+    {
+      name: "3 minutes",
+      seconds: 180,
+    },
+    {
+      name: "4 minutes",
+      seconds: 240,
+    },
+    {
+      name: "5 minutes",
+      seconds: 300,
+    },
+  ];
 
   const demo = {
     lowerBound: 0,
@@ -21,13 +45,8 @@
     demo.excludedNumbers
   );
 
-  let test;
   let input = "";
-
-  onMount(() => {
-    test = trainer.generateQuestion();
-    console.log(test.display());
-  });
+  let timer;
 
   const onKeyDown = (e) => {
     // if key is number
@@ -43,22 +62,50 @@
     }
 
     // if input is as long as the answer)
-    if (input.length === test.answer.toString().length) {
-      if (input == test.answer) {
+    if (input.length === trainer.currentQuestion.answer.toString().length) {
+      const isCorrect = trainer.submitAnswer(input);
+
+      if (isCorrect) {
         console.log("correct");
       } else {
         console.log("incorrect");
       }
 
-      test = trainer.generateQuestion();
       input = "";
-      console.log(test.display());
+      updateTrainer();
+      console.log(trainer.currentQuestion.display());
     }
+  };
+
+  const onTimerFinish = () => {
+    console.log("timer finished");
+  };
+
+  const startTimer = (seconds) => {
+    timer.start(seconds);
+
+    trainer.initialize();
+    updateTrainer();
+    console.log(trainer.currentQuestion.display());
+  };
+
+  const updateTrainer = () => {
+    trainer = trainer;
   };
 </script>
 
 <div class="simple-arithmetic-app">
-  <h1>Simple Arithmetic App</h1>
+  <Timer bind:this={timer} on:finish={onTimerFinish} />
+  {#if trainer.currentQuestion != null}
+    <div class="question">
+      {trainer.currentQuestion.display()} = {input.length > 0 ? input : "?"}
+    </div>
+    {trainer.displayScore()}
+  {:else}
+    {#each TIMES as time}
+      <button on:click={() => startTimer(time.seconds)}>{time.name}</button>
+    {/each}
+  {/if}
 </div>
 
 <svelte:window on:keydown|preventDefault={onKeyDown} />
