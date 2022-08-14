@@ -68,7 +68,7 @@
             "upperBound": 5,
             "operations": ["division"],
             "guranteedNumbers": [],
-            "excludedNumbers": []
+            "excludedNumbers": [0]
         }
     },
     {
@@ -92,7 +92,7 @@
             "upperBound": 10,
             "operations": ["division"],
             "guranteedNumbers": [],
-            "excludedNumbers": []
+            "excludedNumbers": [0]
         }
     },
     {
@@ -116,7 +116,7 @@
             "upperBound": 12,
             "operations": ["division"],
             "guranteedNumbers": [11, 12],
-            "excludedNumbers": []
+            "excludedNumbers": [0]
         }
     },
     {
