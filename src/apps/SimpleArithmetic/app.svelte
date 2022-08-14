@@ -29,7 +29,7 @@
     },
   ];
 
-  const trainer = new Trainer(
+  let trainer = new Trainer(
     data.lowerBound,
     data.upperBound,
     data.operations,
