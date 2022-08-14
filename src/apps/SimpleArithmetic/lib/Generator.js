@@ -14,19 +14,17 @@ class Generator {
   createQuestion() {}
 
   generateOperands() {
-    let operand1 = this.generateOperand();
-    let operand2 = this.generateOperand();
+    const operand1 = this.generateOperand();
 
-    /*
-    if (this.guranteedNumbers.length > 0 || this.guranteedNumbers.includes(operand1)) {
-      operand2 = this.generateOperand();
-    } else {
-      operand2 =
+    if (this.guranteedNumbers.length > 0) {
+      const guaranteedOperand =
         this.guranteedNumbers[
           Math.floor(Math.random() * this.guranteedNumbers.length)
         ];
+      return [operand1, guaranteedOperand];
     }
-    */
+
+    const operand2 = this.generateOperand();
 
     return [operand1, operand2];
   }
