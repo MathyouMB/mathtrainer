@@ -21,12 +21,44 @@
     demo.excludedNumbers
   );
 
+  let test;
+  let input = "";
+
   onMount(() => {
-    const test = trainer.generateQuestion();
-    console.log(test);
+    test = trainer.generateQuestion();
+    console.log(test.display());
   });
+
+  const onKeyDown = (e) => {
+    // if key is number
+    if (e.keyCode >= 48 && e.keyCode <= 57) {
+      input += e.keyCode - 48;
+    }
+
+    // if key is backspace
+    if (e.keyCode === 8) {
+      if (input.length > 0) {
+        input = input.slice(0, input.length - 1);
+      }
+    }
+
+    // if input is as long as the answer)
+    if (input.length === test.answer.toString().length) {
+      if (input == test.answer) {
+        console.log("correct");
+      } else {
+        console.log("incorrect");
+      }
+
+      test = trainer.generateQuestion();
+      input = "";
+      console.log(test.display());
+    }
+  };
 </script>
 
 <div class="simple-arithmetic-app">
   <h1>Simple Arithmetic App</h1>
 </div>
+
+<svelte:window on:keydown|preventDefault={onKeyDown} />
