@@ -1,0 +1,15 @@
+.simple-arithmetic-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.time-buttons {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}

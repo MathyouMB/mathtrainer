@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Timer from "../../components/Timer.svelte";
+  import Button from "../../components/Button.svelte";
   import { Trainer } from "./lib/Trainer";
   import "./styles.scss";
 
@@ -94,9 +95,11 @@
     </div>
     {trainer.displayScore()}
   {:else}
-    {#each TIMES as time}
-      <button on:click={() => startTimer(time.seconds)}>{time.name}</button>
-    {/each}
+    <div class="time-buttons">
+      {#each TIMES as time}
+        <Button on:click={() => startTimer(time.seconds)} label={time.name} />
+      {/each}
+    </div>
   {/if}
 </div>
 
