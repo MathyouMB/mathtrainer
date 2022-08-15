@@ -1,11 +1,12 @@
 <script>
-  import { onMount } from "svelte";
   import Timer from "../../components/Timer.svelte";
   import Button from "../../components/Button.svelte";
+  import Icon from "../../components/Icon.svelte";
   import { Trainer } from "./lib/Trainer";
   import "./styles.scss";
 
   export let data;
+  export let title;
 
   const TIMES = [
     {
@@ -88,13 +89,33 @@
 </script>
 
 <div class="simple-arithmetic-app">
-  <Timer bind:this={timer} on:finish={onTimerFinish} />
-  {#if trainer.currentQuestion != null}
-    <div class="question">
-      {trainer.currentQuestion.display()} = {input.length > 0 ? input : "?"}
+  <div class="app-display">
+    {#if trainer.currentQuestion != null}
+      <div>
+        {trainer.currentQuestion.operand1}
+        <span class="app-display-operation"
+          >{trainer.currentQuestion.displayOperation()}</span
+        >
+        {trainer.currentQuestion.operand2}
+      </div>
+      <div>
+        {input}
+      </div>
+    {:else}
+      {title}
+    {/if}
+  </div>
+
+  <div class="app-stats">
+    <div class="app-stat">
+      <Icon name="check" />{trainer.determineScore()} / {trainer.records.length}
     </div>
-    {trainer.displayScore()}
-  {:else}
+    <div class="app-stat">
+      <Icon name="clock" /><Timer bind:this={timer} on:finish={onTimerFinish} />
+    </div>
+  </div>
+
+  {#if trainer.currentQuestion == null}
     <div class="time-buttons">
       {#each TIMES as time}
         <Button on:click={() => startTimer(time.seconds)} label={time.name} />

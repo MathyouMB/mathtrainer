@@ -11,6 +11,19 @@ class Question {
     this.answer = answer;
   }
 
+  displayOperation() {
+    switch (this.operation) {
+      case "addition":
+        return "+";
+      case "subtraction":
+        return "-";
+      case "multiplication":
+        return "×";
+      case "division":
+        return "÷";
+    }
+  }
+
   display() {
     switch (this.operation) {
       case "addition":

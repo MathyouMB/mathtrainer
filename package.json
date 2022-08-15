@@ -19,6 +19,7 @@
     "svelte": "^3.49.0"
   },
   "dependencies": {
+    "feather-icons": "^4.29.0",
     "sass": "^1.49.9"
   }
 }

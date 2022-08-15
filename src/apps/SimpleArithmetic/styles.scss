@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100%;
+    width: 30rem;
 }
 
 .time-buttons {
@@ -12,4 +12,28 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
+}
+
+.app-display {
+    height: 20vh;
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.app-display-operation {
+    color: var(--theme);
+}
+
+.app-stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.app-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }

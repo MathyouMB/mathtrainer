@@ -26,8 +26,8 @@ const exercise = exercises.find((exercise) => exercise.id === id);
 
 <Layout title={exercise.title}>
   <div class="exercise-page">
-    <h2>{exercise.title}</h2>
-    <SimpleArithmeticApp client:load data={exercise.data} />
+    <SimpleArithmeticApp client:load title={exercise.title} data={exercise.data}
+    />
   </div>
 </Layout>
 
