@@ -86,6 +86,7 @@ class Trainer {
 
   initialize = () => {
     this.generateQuestion();
+    this.resetRecords();
   };
 
   submitAnswer = (answer) => {
@@ -106,6 +107,10 @@ class Trainer {
     this.records.push(record);
 
     return record;
+  };
+
+  resetRecords = () => {
+    this.records = [];
   };
 
   determineScore = () => {

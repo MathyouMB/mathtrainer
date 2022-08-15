@@ -41,8 +41,11 @@
 
   let input = "";
   let timer;
+  let sessionCompleted = false;
 
   const onKeyDown = (e) => {
+    if (sessionCompleted) return;
+
     // if key is number
     if (e.keyCode >= 48 && e.keyCode <= 57) {
       input += e.keyCode - 48;
@@ -73,10 +76,13 @@
 
   const onTimerFinish = () => {
     console.log("timer finished");
+    sessionCompleted = true;
+    input = "";
   };
 
   const startTimer = (seconds) => {
     timer.start(seconds);
+    sessionCompleted = false;
 
     trainer.initialize();
     updateTrainer();
@@ -115,7 +121,7 @@
     </div>
   </div>
 
-  {#if trainer.currentQuestion == null}
+  {#if trainer.currentQuestion == null || sessionCompleted}
     <div class="time-buttons">
       {#each TIMES as time}
         <Button on:click={() => startTimer(time.seconds)} label={time.name} />
