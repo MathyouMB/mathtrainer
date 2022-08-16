@@ -99,7 +99,22 @@ class Trainer {
   generateQuestion = () => {
     const generator =
       this.generators[Math.floor(Math.random() * this.generators.length)];
-    this.currentQuestion = generator.createQuestion();
+    const latestRecord = this.records[this.records.length - 1];
+
+    let newQuestion = null;
+
+    if (latestRecord) {
+      while (
+        newQuestion === null ||
+        latestRecord.question.isEqualTo(newQuestion)
+      ) {
+        newQuestion = generator.createQuestion();
+      }
+    } else {
+      newQuestion = generator.createQuestion();
+    }
+
+    this.currentQuestion = newQuestion;
   };
 
   recordAnswer = (answer) => {

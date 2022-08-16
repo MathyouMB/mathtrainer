@@ -36,6 +36,14 @@ class Question {
         return `${this.operand1} ÷ ${this.operand2}`;
     }
   }
+
+  isEqualTo(question) {
+    return (
+      this.operand1 === question.operand1 &&
+      this.operand2 === question.operand2 &&
+      this.operation === question.operation
+    );
+  }
 }
 
 export { Question };

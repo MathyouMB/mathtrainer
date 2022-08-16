@@ -40,8 +40,6 @@ class Generator {
         this.lowerBound;
     }
 
-    console.log(operand);
-
     return operand;
   }
 }
