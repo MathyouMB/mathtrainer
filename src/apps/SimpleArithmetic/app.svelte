@@ -31,13 +31,7 @@
     },
   ];
 
-  let trainer = new Trainer(
-    data.lowerBound,
-    data.upperBound,
-    data.operations,
-    data.guranteedNumbers,
-    data.excludedNumbers
-  );
+  let trainer = new Trainer(data);
 
   let input = "";
   let timer;

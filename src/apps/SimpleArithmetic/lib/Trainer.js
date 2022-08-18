@@ -1,87 +1,31 @@
-import {
-  AdditionGenerator,
-  DivisionGenerator,
-  MultiplicationGenerator,
-  SubtractionGenerator,
-} from "./Generators";
-
+import { Exercise } from "./Exercise";
 import { Record } from "./Record";
 
 class Trainer {
-  generators;
+  exercises;
   currentQuestion = null;
   records;
 
-  constructor(
-    lowerBound,
-    upperBound,
-    operations,
-    guranteedNumbers,
-    excludedNumbers
-  ) {
-    this.generators = this.constructGenerators(
-      lowerBound,
-      upperBound,
-      operations,
-      guranteedNumbers,
-      excludedNumbers
-    );
+  constructor(exercises) {
+    this.exercises = this.constructExercises(exercises);
     this.records = [];
   }
 
-  constructGenerators = (
-    lowerBound,
-    upperBound,
-    operations,
-    guranteedNumbers,
-    excludedNumbers
-  ) => {
-    let generators = [];
-    for (let operation of operations) {
-      switch (operation) {
-        case "addition":
-          generators.push(
-            new AdditionGenerator(
-              lowerBound,
-              upperBound,
-              guranteedNumbers,
-              excludedNumbers
-            )
-          );
-          break;
-        case "subtraction":
-          generators.push(
-            new SubtractionGenerator(
-              lowerBound,
-              upperBound,
-              guranteedNumbers,
-              excludedNumbers
-            )
-          );
-          break;
-        case "multiplication":
-          generators.push(
-            new MultiplicationGenerator(
-              lowerBound,
-              upperBound,
-              guranteedNumbers,
-              excludedNumbers
-            )
-          );
-          break;
-        case "division":
-          generators.push(
-            new DivisionGenerator(
-              lowerBound,
-              upperBound,
-              guranteedNumbers,
-              excludedNumbers
-            )
-          );
-          break;
-      }
+  constructExercises = (exercises) => {
+    let constructedExercises = [];
+
+    for (let exercise of exercises) {
+      const e = new Exercise(
+        exercise.lowerBound,
+        exercise.upperBound,
+        exercise.operations,
+        exercise.guranteedNumbers,
+        exercise.excludedNumbers
+      );
+      constructedExercises.push(e);
     }
-    return generators;
+
+    return constructedExercises;
   };
 
   initialize = () => {
@@ -97,8 +41,14 @@ class Trainer {
   };
 
   generateQuestion = () => {
+    const exercise =
+      this.exercises[Math.floor(Math.random() * this.exercises.length)];
+
     const generator =
-      this.generators[Math.floor(Math.random() * this.generators.length)];
+      exercise.generators[
+        Math.floor(Math.random() * exercise.generators.length)
+      ];
+
     const latestRecord = this.records[this.records.length - 1];
 
     let newQuestion = null;
@@ -136,11 +86,6 @@ class Trainer {
       }
     }
     return score;
-  };
-
-  displayScore = () => {
-    let score = this.determineScore();
-    return `You got ${score} out of ${this.records.length} questions correct.`;
   };
 }
 

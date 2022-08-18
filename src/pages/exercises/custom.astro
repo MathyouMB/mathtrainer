@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CustomExercise from "../../apps/SimpleArithmetic/custom.svelte";
+import exercises from "../../data/exercises.json";
+---
+
+<Layout title={"Custom Exercise"}>
+  <div class="exercise-page">
+    <CustomExercise client:load exercises={exercises} />
+  </div>
+</Layout>
+
+<style>
+  .exercise-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+</style>
