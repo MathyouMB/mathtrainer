@@ -18,7 +18,7 @@
 <br />
 
 {#if selected.length > 0}
-  <a href={`../mathtrainer/exercises/custom?exercises=${selected.join(",")}`}
+  <a href={`../exercises/custom?exercises=${selected.join(",")}`}
     ><Button label="Start" /></a
   >
 {/if}
