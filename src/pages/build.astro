@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Builder from "../apps/SimpleArithmetic/builder.svelte";
+import exercises from "../data/exercises.json";
+---
+
+<Layout title="Build Custom Exercise">
+  <h2>Combine Multiple Exercises</h2>
+  <Builder client:load exercises={exercises} />
+</Layout>
