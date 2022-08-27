@@ -8,7 +8,7 @@
   export let data;
   export let title;
 
-  const NUMPAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  const NUMPAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "←", "0"];
 
   const TIMES = [
     {
@@ -65,7 +65,14 @@
   const onNumpadInput = async (num) => {
     if (sessionCompleted || currentlyIncorrect) return;
 
-    input += num;
+    if (num == "←") {
+      if (input.length > 0) {
+        input = input.slice(0, input.length - 1);
+      }
+    } else {
+      input += num;
+    }
+
     validateInput();
   };
 
