@@ -1,0 +1,1 @@
+.theme-button.svelte-spofto{border-radius:.3rem;border-width:0px;min-width:6rem;background-color:var(--theme);color:#fff;font-weight:700;font-size:16px;transition:all .15s;cursor:pointer}@media only screen and (min-width: 900px){.theme-button.svelte-spofto:hover{background-color:var(--theme-dark)}}.theme-button-label.svelte-spofto{padding:.75rem 1.5rem}
