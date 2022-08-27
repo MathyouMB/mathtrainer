@@ -94,5 +94,41 @@
             "guranteedNumbers": [11, 12],
             "excludedNumbers": [0]
         }
+    },
+    {
+        "id": "squares-up-to-16",
+        "title": "Square numbers up to 16x16",
+        "format": "squares",
+        "data": {
+            "lowerBound": 0,
+            "upperBound": 0,
+            "operations": ["squares"],
+            "guranteedNumbers": [],
+            "excludedNumbers": []
+        }
+    },
+    {
+        "id": "roots-up-to-16",
+        "title": "Square roots up to 16",
+        "format": "squares",
+        "data": {
+            "lowerBound": 0,
+            "upperBound": 0,
+            "operations": ["roots"],
+            "guranteedNumbers": [],
+            "excludedNumbers": []
+        }
+    },
+    {
+        "id": "common-fractions-to-percentages",
+        "title": "Converting common fractions to percentages",
+        "format": "percentages",
+        "data": {
+            "lowerBound": 0,
+            "upperBound": 0,
+            "operations": ["commonFraction"],
+            "guranteedNumbers": [],
+            "excludedNumbers": []
+        }
     }
 ]

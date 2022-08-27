@@ -10,7 +10,7 @@
 
   const TIMES = [
     {
-      name: "1 minutes",
+      name: "1 minute",
       seconds: 60,
     },
     {
@@ -81,6 +81,7 @@
     trainer.initialize();
     updateTrainer();
     console.log(trainer.currentQuestion.display());
+    console.log(trainer.currentQuestion);
   };
 
   const updateTrainer = () => {
@@ -92,11 +93,34 @@
   <div class="app-display">
     {#if trainer.currentQuestion != null}
       <div>
-        {trainer.currentQuestion.operand1}
-        <span class="app-display-operation"
-          >{trainer.currentQuestion.displayOperation()}</span
-        >
-        {trainer.currentQuestion.operand2}
+        {#if trainer.currentQuestion.operation === "commonFraction"}
+          <div style="display:flex; align-items:center;">
+            <div>
+              <div>{trainer.currentQuestion.operand1}</div>
+              <div class="fraction-line" />
+              <div>{trainer.currentQuestion.operand2}</div>
+            </div>
+            <div style="margin-left: 1.5rem;">
+              <span>=</span><span style="margin-left: 1.5rem;"
+                ><span class="app-display-operation">__</span> %</span
+              >
+            </div>
+          </div>
+        {:else if trainer.currentQuestion.operation === "squares"}
+          <div style="display:flex; align-items:center;">
+            {trainer.currentQuestion.operand1}
+            <div class="app-display-operation exponent">
+              {trainer.currentQuestion.displayOperation()}
+            </div>
+            {trainer.currentQuestion.operand2}
+          </div>
+        {:else}
+          {trainer.currentQuestion.operand1}
+          <span class="app-display-operation"
+            >{trainer.currentQuestion.displayOperation()}</span
+          >
+          {trainer.currentQuestion.operand2}
+        {/if}
       </div>
       <div>
         {input}

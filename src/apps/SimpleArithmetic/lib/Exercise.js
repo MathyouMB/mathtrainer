@@ -1,7 +1,10 @@
 import {
   AdditionGenerator,
+  CommonFractionGenerator,
   DivisionGenerator,
   MultiplicationGenerator,
+  RootsGenerator,
+  SquaresGenerator,
   SubtractionGenerator,
 } from "./Generators";
 
@@ -74,6 +77,15 @@ class Exercise {
               excludedNumbers
             )
           );
+          break;
+        case "commonFraction":
+          generators.push(new CommonFractionGenerator());
+          break;
+        case "roots":
+          generators.push(new RootsGenerator());
+          break;
+        case "squares":
+          generators.push(new SquaresGenerator());
           break;
       }
     }

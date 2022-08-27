@@ -26,6 +26,18 @@
     color: var(--theme);
 }
 
+.fraction-line {
+    background-color: var(--theme);
+    width: 2rem;
+    height: 0.25rem;   
+    margin: 0.5rem;
+}
+
+.exponent {
+    margin-bottom: 1rem;
+    margin-left: 0.25rem
+}
+
 .app-stats {
     display: flex;
     justify-content: space-around;

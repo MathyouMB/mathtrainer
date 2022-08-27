@@ -21,6 +21,12 @@ class Question {
         return "×";
       case "division":
         return "÷";
+      case "commonFraction":
+        return "/";
+      case "roots":
+        return "√";
+      case "squares":
+        return "²";
     }
   }
 
@@ -34,6 +40,12 @@ class Question {
         return `${this.operand1} × ${this.operand2}`;
       case "division":
         return `${this.operand1} ÷ ${this.operand2}`;
+      case "commonFraction":
+        return `${this.operand1} / ${this.operand2}`;
+      case "roots":
+        return `√${this.operand2}`;
+      case "squares":
+        return `${this.operand1}²`;
     }
   }
 
