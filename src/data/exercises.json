@@ -79,7 +79,7 @@
             "lowerBound": 0,
             "upperBound": 12,
             "operations": ["multiplication"],
-            "guranteedNumbers": [11, 12],
+            "guranteedNumbers": [],
             "excludedNumbers": [0]
         }
     },
@@ -91,7 +91,7 @@
             "lowerBound": 0,
             "upperBound": 12,
             "operations": ["division"],
-            "guranteedNumbers": [11, 12],
+            "guranteedNumbers": [],
             "excludedNumbers": [0]
         }
     },

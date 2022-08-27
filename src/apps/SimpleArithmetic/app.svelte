@@ -127,9 +127,9 @@
 <div class="simple-arithmetic-app">
   <div class="app-display">
     {#if trainer.currentQuestion != null}
-      <div>
+      <div class="app-display-question">
         {#if trainer.currentQuestion.operation === "commonFraction"}
-          <div style="display:flex; align-items:center;">
+          <div class="app-display-question-container">
             <div>
               <div>{trainer.currentQuestion.operand1}</div>
               <div class="fraction-line" />
@@ -142,7 +142,7 @@
             </div>
           </div>
         {:else if trainer.currentQuestion.operation === "squares"}
-          <div style="display:flex; align-items:center;">
+          <div class="app-display-question-container">
             {trainer.currentQuestion.operand1}
             <div class="app-display-operation exponent">
               {trainer.currentQuestion.displayOperation()}
