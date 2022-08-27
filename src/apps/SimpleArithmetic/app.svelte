@@ -89,7 +89,7 @@
         console.log("correct");
       } else {
         currentlyIncorrect = true;
-        await sleep(400);
+        await sleep(800);
         currentlyIncorrect = false;
         console.log("incorrect");
       }
