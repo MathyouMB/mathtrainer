@@ -27,7 +27,5 @@
 </script>
 
 {#if hasSelectedExercisesIds && selectedExercises.length > 0}
-  <App title="Custom Exercise" data={selectedExercises} />
-{:else}
-  <h2>ERROR: Invalid Custom Exercise.</h2>
+  <App title="Select Exercise Duration" data={selectedExercises} />
 {/if}
