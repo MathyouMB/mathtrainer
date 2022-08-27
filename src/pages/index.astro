@@ -5,28 +5,25 @@ import exercises from "../data/exercises.json";
 ---
 
 <Layout title="Build Custom Exercise">
-  <h2>Arithmetic</h2>
-  <p>Select the exercises you'd like to practice:</p>
-  <Builder
-    client:load
-    exercises={exercises.filter((e) => {
-      return e.format === "simple-arithmetic";
-    })}
-  />
-  <h2>Squares</h2>
-  <p>Select the exercises you'd like to practice:</p>
-  <Builder
-    client:load
-    exercises={exercises.filter((e) => {
-      return e.format === "squares";
-    })}
-  />
-  <h2>Percentages</h2>
-  <p>Select the exercises you'd like to practice:</p>
-  <Builder
-    client:load
-    exercises={exercises.filter((e) => {
-      return e.format === "percentages";
-    })}
-  />
+  <div class="home">
+    <div class="home-title">Mr.Bovell's Math Trainer</div>
+    <p>Select the exercises you'd like to practice:</p>
+    <div class="home-break"></div>
+    <Builder client:load exercises={exercises} />
+  </div>
 </Layout>
+
+<style>
+  .home {
+    margin: 1.5rem;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .home-break {
+    margin-bottom: 2.5rem;
+  }
+</style>
