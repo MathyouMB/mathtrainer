@@ -8,6 +8,8 @@
   export let data;
   export let title;
 
+  const NUMPAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
   const TIMES = [
     {
       name: "1 minute",
@@ -36,9 +38,14 @@
   let input = "";
   let timer;
   let sessionCompleted = false;
+  let currentlyIncorrect = false;
+  let currentlyCorrect = false;
 
-  const onKeyDown = (e) => {
-    if (sessionCompleted) return;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  const onKeyDown = async (e) => {
+    console.log(e);
+    if (sessionCompleted || currentlyIncorrect) return;
 
     // if key is number
     if (e.keyCode >= 48 && e.keyCode <= 57) {
@@ -52,16 +59,35 @@
       }
     }
 
+    validateInput();
+  };
+
+  const onNumpadInput = async (num) => {
+    if (sessionCompleted || currentlyIncorrect) return;
+
+    input += num;
+    validateInput();
+  };
+
+  const validateInput = async () => {
     // if input is as long as the answer)
     if (input.length === trainer.currentQuestion.answer.toString().length) {
       const isCorrect = trainer.submitAnswer(input);
 
+      // TODO: these flags could just be one state variable...
       if (isCorrect) {
+        currentlyCorrect = true;
+        await sleep(100);
+        currentlyCorrect = false;
         console.log("correct");
       } else {
+        currentlyIncorrect = true;
+        await sleep(400);
+        currentlyIncorrect = false;
         console.log("incorrect");
       }
 
+      trainer.generateQuestion();
       input = "";
       updateTrainer();
       console.log(trainer.currentQuestion.display());
@@ -71,6 +97,8 @@
   const onTimerFinish = () => {
     console.log("timer finished");
     sessionCompleted = true;
+    currentlyCorrect = false;
+    currentlyIncorrect = false;
     input = "";
   };
 
@@ -123,7 +151,15 @@
         {/if}
       </div>
       <div>
-        {input}
+        {#if currentlyIncorrect}
+          <span style="color: #ff4948"
+            >{input} ≠ {trainer.currentQuestion.answer}</span
+          >
+        {:else if currentlyCorrect}
+          <span style="color: #01f477">{input}</span>
+        {:else}
+          {input}
+        {/if}
       </div>
     {:else}
       {title}
@@ -143,6 +179,12 @@
     <div class="time-buttons">
       {#each TIMES as time}
         <Button on:click={() => startTimer(time.seconds)} label={time.name} />
+      {/each}
+    </div>
+  {:else}
+    <div class="app-numpad">
+      {#each NUMPAD as num}
+        <Button on:click={() => onNumpadInput(num)} label={num} />
       {/each}
     </div>
   {/if}

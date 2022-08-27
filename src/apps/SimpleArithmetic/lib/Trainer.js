@@ -36,7 +36,6 @@ class Trainer {
 
   submitAnswer = (answer) => {
     const record = this.recordAnswer(answer);
-    this.generateQuestion();
 
     return record.isCorrect();
   };
