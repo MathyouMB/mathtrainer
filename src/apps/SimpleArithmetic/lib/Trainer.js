@@ -5,6 +5,7 @@ class Trainer {
   exercises;
   currentQuestion = null;
   records;
+  currentExerciseIndex = 0;
 
   constructor(exercises) {
     this.exercises = this.constructExercises(exercises);
@@ -42,7 +43,7 @@ class Trainer {
 
   generateQuestion = () => {
     const exercise =
-      this.exercises[Math.floor(Math.random() * this.exercises.length)];
+      this.exercises[this.currentExerciseIndex % this.exercises.length];
 
     const generator =
       exercise.generators[
@@ -64,6 +65,7 @@ class Trainer {
       newQuestion = generator.createQuestion();
     }
 
+    this.currentExerciseIndex += 1;
     this.currentQuestion = newQuestion;
   };
 

@@ -2,9 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Builder from "../apps/SimpleArithmetic/builder.svelte";
 import exercises from "../data/exercises.json";
+import other from "../data/other.json";
 ---
 
 <Layout title="Build Custom Exercise">
-  <h2>What do you want to practice?</h2>
+  <h2>Arithmetic</h2>
+  <p>Select the exercises you'd like to practice:</p>
   <Builder client:load exercises={exercises} />
+  <h2>Math Recall</h2>
+  <p>Choose the exercise you'd like to practice:</p>
+  <ul>
+    {other.map((exercise) => (
+      <li>
+        <a href={`./exercises/${exercise.id}`}>{exercise.title}</a>
+      </li>
+    ))}
+  </ul>
 </Layout>

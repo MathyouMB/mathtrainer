@@ -1,94 +1,70 @@
 [
     {
         "id": "add-up-to-ten",
-        "title": "Adding numbers up to 10",
+        "title": "Adding numbers from 1 to 10",
         "format": "simple-arithmetic",
         "data": {
             "lowerBound": 0,
             "upperBound": 10,
             "operations": ["addition"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "subtract-up-to-ten",
-        "title": "Subtracting numbers up to 10",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 0,
-            "upperBound": 10,
-            "operations": ["subtraction"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "add-up-to-100",
-        "title": "Adding numbers up to 100",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 0,
-            "upperBound": 100,
-            "operations": ["addition"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "subtract-up-to-100",
-        "title": "Subtracting numbers up to 100",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 0,
-            "upperBound": 100,
-            "operations": ["subtraction"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "multiply-up-to-five",
-        "title": "Multiplying numbers up to 5",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 0,
-            "upperBound": 5,
-            "operations": ["multiplication"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "divide-up-to-five",
-        "title": "Dividing by numbers up to 5",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 0,
-            "upperBound": 5,
-            "operations": ["division"],
             "guranteedNumbers": [],
             "excludedNumbers": [0]
         }
     },
     {
-        "id": "multiply-from-6-10",
-        "title": "Multiplying numbers from 6-10",
+        "id": "subtract-up-to-ten",
+        "title": "Subtracting numbers from 1 to 10",
         "format": "simple-arithmetic",
         "data": {
-            "lowerBound": 6,
+            "lowerBound": 0,
             "upperBound": 10,
-            "operations": ["multiplication"],
+            "operations": ["subtraction"],
             "guranteedNumbers": [],
-            "excludedNumbers": []
+            "excludedNumbers": [0]
         }
     },
     {
-        "id": "divide-from-6-10",
-        "title": "Dividing by numbers from 6-10",
+        "id": "add-up-to-100",
+        "title": "Adding numbers from 1 to 100",
         "format": "simple-arithmetic",
         "data": {
-            "lowerBound": 6,
+            "lowerBound": 0,
+            "upperBound": 100,
+            "operations": ["addition"],
+            "guranteedNumbers": [],
+            "excludedNumbers": [0]
+        }
+    },
+    {
+        "id": "subtract-up-to-100",
+        "title": "Subtracting numbers from 1 to 100",
+        "format": "simple-arithmetic",
+        "data": {
+            "lowerBound": 0,
+            "upperBound": 100,
+            "operations": ["subtraction"],
+            "guranteedNumbers": [],
+            "excludedNumbers": [0]
+        }
+    },
+    {
+        "id": "multiply-from-1-10",
+        "title": "Multiplying numbers from 1 to 10",
+        "format": "simple-arithmetic",
+        "data": {
+            "lowerBound": 1,
+            "upperBound": 10,
+            "operations": ["multiplication"],
+            "guranteedNumbers": [],
+            "excludedNumbers": [0]
+        }
+    },
+    {
+        "id": "divide-from-1-10",
+        "title": "Dividing by numbers from 1 to 10",
+        "format": "simple-arithmetic",
+        "data": {
+            "lowerBound": 1,
             "upperBound": 10,
             "operations": ["division"],
             "guranteedNumbers": [],
@@ -97,19 +73,19 @@
     },
     {
         "id": "multiply-by-11-12",
-        "title": "Multiplying numbers by 11 and 12",
+        "title": "Multiplying numbers from 1 to 12",
         "format": "simple-arithmetic",
         "data": {
             "lowerBound": 0,
             "upperBound": 12,
             "operations": ["multiplication"],
             "guranteedNumbers": [11, 12],
-            "excludedNumbers": []
+            "excludedNumbers": [0]
         }
     },
     {
         "id": "divide-by-11-12",
-        "title": "Dividing numbers by 11 and 12",
+        "title": "Dividing by numbers from 1 to 12",
         "format": "simple-arithmetic",
         "data": {
             "lowerBound": 0,
@@ -118,41 +94,5 @@
             "guranteedNumbers": [11, 12],
             "excludedNumbers": [0]
         }
-    },
-    {
-        "id": "multiply-from-13-15",
-        "title": "Multiplying numbers from 13-15",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 13,
-            "upperBound": 15,
-            "operations": ["multiplication"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "divide-from-13-15",
-        "title": "Dividing by numbers from 13-15",
-        "format": "simple-arithmetic",
-        "data": {
-            "lowerBound": 13,
-            "upperBound": 15,
-            "operations": ["division"],
-            "guranteedNumbers": [],
-            "excludedNumbers": []
-        }
-    },
-    {
-        "id": "roots-up-to-16",
-        "title": "Square numbers and square roots up to 16x16",
-        "format": null,
-        "data": null
-    },
-    {
-        "id": "common-fractions-to-percentages",
-        "title": "Converting common fractions to percentages",
-        "format": null,
-        "data": null
     }
 ]
