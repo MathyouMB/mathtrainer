@@ -1,23 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Builder from "../apps/SimpleArithmetic/builder.svelte";
 import exercises from "../data/exercises.json";
 ---
 
-<Layout title="Math Trainer Demo">
-  <h2>Mr.Bovell - Math Trainer Demo</h2>
-  <h3>Exercises:</h3>
-  <ul>
-    {exercises.map((exercise) => (
-      <li>
-        <a href={`./exercises/${exercise.id}`}>{exercise.title}</a>
-      </li>
-    ))}
-  </ul>
-  <br />
-  <h3>More:</h3>
-  <ul>
-    <li>
-      <a href="./build/"> Combine Multiple Exercises</a>
-    </li>
-  </ul>
+<Layout title="Build Custom Exercise">
+  <h2>Arithmetic</h2>
+  <p>Select the exercises you'd like to practice:</p>
+  <Builder
+    client:load
+    exercises={exercises.filter((e) => {
+      return e.format === "simple-arithmetic";
+    })}
+  />
+  <h2>Squares</h2>
+  <p>Select the exercises you'd like to practice:</p>
+  <Builder
+    client:load
+    exercises={exercises.filter((e) => {
+      return e.format === "squares";
+    })}
+  />
+  <h2>Percentages</h2>
+  <p>Select the exercises you'd like to practice:</p>
+  <Builder
+    client:load
+    exercises={exercises.filter((e) => {
+      return e.format === "percentages";
+    })}
+  />
 </Layout>

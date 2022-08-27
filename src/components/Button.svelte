@@ -26,8 +26,10 @@
     cursor: pointer;
   }
 
-  .theme-button:hover {
-    background-color: var(--theme-dark);
+  @media only screen and (min-width: 900px) {
+    .theme-button:hover {
+      background-color: var(--theme-dark);
+    }
   }
 
   .theme-button-label {
