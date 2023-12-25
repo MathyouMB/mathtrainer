@@ -8,7 +8,7 @@
   export let data;
   export let title;
 
-  const NUMPAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "←", "0"];
+  const NUMPAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "←", "0", "."];
 
   const TIMES = [
     {
@@ -45,7 +45,6 @@
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   const onKeyDown = async (e) => {
-    console.log(e);
     if (sessionCompleted || currentlyIncorrect) return;
 
     // if key is number
@@ -58,6 +57,11 @@
       if (input.length > 0) {
         input = input.slice(0, input.length - 1);
       }
+    }
+
+    // if key is .
+    if (e.keyCode === 190) {
+      input += ".";
     }
 
     validateInput();
@@ -160,6 +164,13 @@
             <div class="app-display-operation exponent">
               {trainer.currentQuestion.displayOperation()}
             </div>
+            {trainer.currentQuestion.operand2}
+          </div>
+        {:else if trainer.currentQuestion.operation === "percents-of-whole-numbers"}
+          <div class="app-display-question-container">
+            {trainer.currentQuestion.operand1}
+            <span class="app-display-operation">%&nbsp</span>
+            of
             {trainer.currentQuestion.operand2}
           </div>
         {:else}

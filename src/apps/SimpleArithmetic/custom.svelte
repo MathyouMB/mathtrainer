@@ -19,6 +19,7 @@
       selectedExercises = exercises.filter((exercise) =>
         selectedIds.includes(exercise.id)
       );
+      console.log(selectedExercises);
       selectedExercises = selectedExercises.map((exercise) => {
         return exercise.data;
       });

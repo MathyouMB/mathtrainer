@@ -14,15 +14,8 @@ class Trainer {
 
   constructExercises = (exercises) => {
     let constructedExercises = [];
-
     for (let exercise of exercises) {
-      const e = new Exercise(
-        exercise.lowerBound,
-        exercise.upperBound,
-        exercise.operations,
-        exercise.guranteedNumbers,
-        exercise.excludedNumbers
-      );
+      const e = new Exercise(exercise);
       constructedExercises.push(e);
     }
 

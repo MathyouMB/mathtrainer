@@ -130,5 +130,32 @@
             "guranteedNumbers": [],
             "excludedNumbers": []
         }
+    },
+    { 
+        "id": "percentages-of-whole-numbers-below-100",
+        "title": "Percentages up to 100",
+        "format": "percentages",
+        "data": {
+            "lowerBound": 0,
+            "upperBound": 0,
+            "operations": ["percents-of-whole-numbers"],
+            "percentages": [1, 5, 10, 15, 25, 50, 100],
+            "guranteedNumbers": [],
+            "excludedNumbers": []
+        }
+    },
+    {
+        "id": "percentages-of-whole-numbers-over-100",
+        "title": "Percentages > 100",
+        "format": "percentages",
+        "data": {
+            "lowerBound": 0,
+            "upperBound": 0,
+            "operations": ["percents-of-whole-numbers"],
+            "percentages": [101, 105, 110, 115, 125, 150, 200],
+            "guranteedNumbers": [],
+            "excludedNumbers": []
+        }
+
     }
 ]

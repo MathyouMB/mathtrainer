@@ -27,6 +27,8 @@ class Question {
         return "√";
       case "squares":
         return "²";
+      case "percents-of-whole-numbers":
+        return "% of";
     }
   }
 
@@ -46,6 +48,8 @@ class Question {
         return `√${this.operand2}`;
       case "squares":
         return `${this.operand1}²`;
+      case "percents-of-whole-numbers":
+        return `${this.operand1}% of ${this.operand2}`;
     }
   }
 
