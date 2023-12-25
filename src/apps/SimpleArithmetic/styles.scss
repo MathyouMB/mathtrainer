@@ -14,6 +14,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
+
+    .theme-button {
+        min-width: 9rem;
+    }
+}
+
+#life-button {
+    .theme-button {
+        background-color: #f40136 !important;
+    }
 }
 
 .app-display {

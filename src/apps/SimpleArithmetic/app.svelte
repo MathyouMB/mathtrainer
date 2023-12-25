@@ -109,14 +109,18 @@
     input = "";
   };
 
-  const startTimer = (seconds) => {
-    timer.start(seconds);
-    sessionCompleted = false;
-
+  const start = () => {
     trainer.initialize();
     updateTrainer();
     console.log(trainer.currentQuestion.display());
     console.log(trainer.currentQuestion);
+  };
+
+  const startTimer = (seconds) => {
+    timer.start(seconds);
+    sessionCompleted = false;
+
+    start();
   };
 
   const updateTrainer = () => {
@@ -187,6 +191,9 @@
       {#each TIMES as time}
         <Button on:click={() => startTimer(time.seconds)} label={time.name} />
       {/each}
+      <div id="life-button">
+        <Button on:click={start} label="Life" />
+      </div>
     </div>
   {:else}
     <div class="app-numpad">
