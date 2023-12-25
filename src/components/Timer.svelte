@@ -1,6 +1,8 @@
 <script>
   import { createEventDispatcher, onDestroy } from "svelte";
 
+  export let lifeMode = undefined;
+
   const dispatch = createEventDispatcher();
 
   let countdown = 0;
@@ -27,13 +29,6 @@
   let isResetting;
   const duration = 1000;
 
-  /*
-  function handleNew() {
-    clearInterval(interval);
-    dispatch("new");
-  }
-  */
-
   function handleStart(seconds) {
     countdown = seconds;
     now = Date.now();
@@ -47,22 +42,6 @@
     dispatch("finish");
   }
 
-  /*
-  function handlePause() {
-    clearInterval(interval);
-    isPaused = true;
-  }
-
-  function handleReset() {
-    clearInterval(interval);
-    isResetting = true;
-    isPaused = false;
-    now = Date.now();
-    end = now + countdown * 1000;
-    interval = setInterval(updateTimer, 1000);
-  }
-  */
-
   const displayTimeWithZeros = (time) => {
     return time < 10 ? "0" + time : time;
   };
@@ -72,4 +51,10 @@
   });
 </script>
 
-<div>{displayTimeWithZeros(m)}:{displayTimeWithZeros(s)}</div>
+<div>
+  {#if lifeMode === false}
+    {displayTimeWithZeros(m)}:{displayTimeWithZeros(s)}
+  {:else if lifeMode === true}
+    {"∞"}
+  {/if}
+</div>

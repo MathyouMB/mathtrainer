@@ -40,6 +40,7 @@
   let sessionCompleted = false;
   let currentlyIncorrect = false;
   let currentlyCorrect = false;
+  let lifeMode = false;
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -116,9 +117,17 @@
     console.log(trainer.currentQuestion);
   };
 
+  const startLifeMode = () => {
+    sessionCompleted = false;
+    lifeMode = true;
+
+    start();
+  };
+
   const startTimer = (seconds) => {
     timer.start(seconds);
     sessionCompleted = false;
+    lifeMode = false;
 
     start();
   };
@@ -182,7 +191,11 @@
       <Icon name="check" />{trainer.determineScore()} / {trainer.records.length}
     </div>
     <div class="app-stat">
-      <Icon name="clock" /><Timer bind:this={timer} on:finish={onTimerFinish} />
+      <Icon name="clock" /><Timer
+        bind:this={timer}
+        on:finish={onTimerFinish}
+        {lifeMode}
+      />
     </div>
   </div>
 
@@ -192,7 +205,7 @@
         <Button on:click={() => startTimer(time.seconds)} label={time.name} />
       {/each}
       <div id="life-button">
-        <Button on:click={start} label="Life" />
+        <Button on:click={() => startLifeMode()} label="Life" />
       </div>
     </div>
   {:else}

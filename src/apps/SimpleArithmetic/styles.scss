@@ -22,7 +22,11 @@
 
 #life-button {
   .theme-button {
-    background-color: #f40136 !important;
+    background-color: #0068ab !important;
+  }
+
+  .theme-button:hover {
+    background-color: #003c68 !important;
   }
 }
 
